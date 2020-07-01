@@ -7,10 +7,8 @@ from models.post import Post
 
 class Menu(object):
 
-    def __init__(self):
-        self.user = input(
-            "Enter your author name (this name is case sensitive and will be used to access your blog and it's posts): "
-        ).lower()
+    def __init__(self, user):
+        self.user = user
         self._account = self._user_has_account()
         if self._account is not None:
             self._blog = self._account
