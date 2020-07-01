@@ -10,7 +10,7 @@ class Menu(object):
     def __init__(self):
         self.user = input(
             "Enter your author name (this name is case sensitive and will be used to access your blog and it's posts): "
-        )
+        ).lower()
         self._account = self._user_has_account()
         if self._account is not None:
             self._blog = self._account
@@ -22,7 +22,7 @@ class Menu(object):
         return Database.find_one(collection=constants.BLOG_COLLECTION, query={'author': self.user})
 
     def _prompt_user_for_account(self):
-        print("\nSeems you do not have an associated account, let's on board you by creating a new blog.")
+        print("\nSeems you do not have an associated account, please create a new blog...." + "\n")
         title = input("Enter a title for your Blog: ")
         description = input("Enter description for your Blog: ")
         self._blog = Blog(
@@ -67,7 +67,13 @@ class Menu(object):
             except ValueError:
                 print("Invalid value detected, aborting...")
         elif row.upper() == 'W':
-            Blog(author=self._blog).new_post()
-            pass
+            print("[+]-------" * 5 + "[+]")
+            new_post = Blog(
+                author=self._blog.get('author'),
+                description=self._blog.get('description'),
+                title=self._blog.get('title'),
+                _id=self._blog.get('id')
+            ).new_post()
+            print(f"POST <{new_post.get('title')}> created for blog <{self._blog.get('title')}>.")
         else:
             print("Thank you for blogging with us!")

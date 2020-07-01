@@ -17,7 +17,8 @@ class Post(object):
 
     def save_to_mongo(self):
         Database.insert(collection='posts',
-                        data=self.json())
+                        data=self.json()
+                        )
 
     def json(self):
         return {
