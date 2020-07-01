@@ -1,6 +1,7 @@
 from database import Database
 import uuid
 from datetime import datetime
+import constants
 
 
 class Post(object):
@@ -16,7 +17,7 @@ class Post(object):
         self.created_at = created_at
 
     def save_to_mongo(self):
-        Database.insert(collection='posts',
+        Database.insert(collection=constants.POST_COLLECTION,
                         data=self.json()
                         )
 
@@ -31,15 +32,15 @@ class Post(object):
         }
 
     @staticmethod
-    def from_mongo(id):
+    def from_mongo(uid):
         return Database.find_one(
-            collection='posts',
-            query={'id': id}
+            collection=constants.POST_COLLECTION,
+            query={'id': uid}
         )
 
     @staticmethod
-    def from_blog(id):
+    def from_blog(uid):
         return [post for post in Database.find(
-            collection='posts',
-            query={'blog_id': id}
+            collection=constants.POST_COLLECTION,
+            query={'blog_id': uid}
         )]
