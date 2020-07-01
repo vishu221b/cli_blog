@@ -24,5 +24,6 @@ In case you wish to change the database name or collections names, same should b
 
 To run the project:
 1. clone the repository locally
-2. open terminal/cmd and cd into the project home directory
-3. issue command `python app.py`
+2. install the dependencies using requirements.txt (steps mentioned above)
+3. open terminal/cmd and cd into the project home directory
+4. issue command `python app.py`
