@@ -25,6 +25,7 @@ class Blog(object):
             author=self.author
         )
         self.post.save_to_mongo()
+        return self.post.json()
 
     def save_to_mongo(self):
 
