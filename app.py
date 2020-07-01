@@ -5,10 +5,10 @@ from menu import Menu
 
 Database.initialize()
 print("-"*20 + "Welcome to the CLI Blog" + "-"*20, end="\n" + "-"*63 + "\n")
-while True:
-    user = input(
+user = input(
         "Enter your author name (this name is CASE SENSITIVE): "
     )
+while True:
     main_menu = PrettyTable(['S.No.', 'Action'])
     main_menu.add_row(["1", "Go to the main menu"])
     main_menu.add_row(["2", "Exit"])
