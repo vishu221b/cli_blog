@@ -12,7 +12,7 @@ Dependencies for this project:
 - prettytable
 ```
 
-To install pymongo issue the following command
+To install dependencies issue the following command
 ```
 pip install -r requirements.txt
 ```
