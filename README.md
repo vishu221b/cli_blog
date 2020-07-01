@@ -1,4 +1,4 @@
-#CLI Blog
+# CLI Blog
 
 This is a very basic blogging model implementation with interface at CLI level.
 
