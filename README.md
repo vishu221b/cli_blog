@@ -9,11 +9,12 @@ MongoDB is used for as a database in this project.
 ```
 Dependencies for this project:
 - pymongo
+- prettytable
 ```
 
 To install pymongo issue the following command
 ```
-pip install pymongo
+pip install -r requirements.txt
 ```
 Before running this app, make sure you have mongoDB installed on your PC.
 <br>
